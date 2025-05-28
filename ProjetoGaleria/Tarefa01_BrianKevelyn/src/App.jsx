@@ -1,52 +1,68 @@
-import React, { useState } from 'react';
-import './App.css'; 
+import { useState } from 'react';
+import Card from './componentes/Card';
+import Detalhes from './componentes/Detalhes';
+import Tema from './componentes/Tema';
+import Galeria from './componentes/Galeria';
+import './App.css';
 
-import personagem1 from './assets/Neymar.jpg';
-import personagem2 from './assets/ChicoMoedas.png';
-import personagem3 from './assets/Davi.jpeg';
-import personagem4 from './assets/LuisAraujo.png';
-import personagem5 from './assets/FilipeRet.jpg';
-import personagem6 from './assets/Matue.png';
+import person1 from './assets/Neymar.jpg';
+import person2 from './assets/Davi.jpeg';
+import person3 from './assets/ChicoMoedas.png';
+import person4 from './assets/FilipeRet.jpg';
+import person5 from './assets/Matue.png';
+import person6 from './assets/LuisAraujo.png';
 
 
-import Galeria from './Galeria';
-import Detalhes from './Detalhes';
-import Tema from './Tema';
+//array de objetos para armazenar as informações necessárias sobre cada personagem como nome , a sua descrição e o seu arquivo de imagem (todos importados aqui mesmo em App).
+const characters = [
+  {
+    id: 1,
+    name: 'Neymar',
+    description: 'Melhor do mundo.',
+    image: person1
+  },
+  {
+    id: 2,
+    name: 'Davi',
+    description: 'Resenha.',
+    image: person2
+  },
+   {
+    id: 3,
+    name: 'Chico Moedas',
+    description: 'Eu tentei.',
+    image: person3
+  },
+  {
+    id: 4,
+    name: 'Filipe Ret',
+    description: 'R-E-T do TTK.',
+    image: person4
+  },
+   {
+    id: 5,
+    name: 'Matue',
+    description: 'Maconheiro.',
+    image: person5
+  },
+  {
+    id: 6,
+    name: 'Luis Araújo',
+    description: 'LA7.',
+    image: person6
+  }
 
-const App = () => {
-  const [temaEscuro, setTemaEscuro] = useState(false);
-  const [personagemSelecionado, setPersonagemSelecionado] = useState(null);
+];
 
-  const personagens = [
-    { id: 1, nome: 'Personagem 1', imagem: personagem1, descricao: 'Descrição do personagem 1.' },
-    { id: 2, nome: 'Personagem 2', imagem: personagem2, descricao: 'Descrição do personagem 2.' },
-    { id: 3, nome: 'Personagem 3', imagem: personagem3, descricao: 'Descrição do personagem 3.' },
-    { id: 4, nome: 'Personagem 4', imagem: personagem4, descricao: 'Descrição do personagem 4.' },
-    { id: 5, nome: 'Personagem 5', imagem: personagem5, descricao: 'Descrição do personagem 5.' },
-    { id: 6, nome: 'Personagem 6', imagem: personagem6, descricao: 'Descrição do personagem 6.' },
-  ];
+export default function App() {
 
-  const toggleTema = () => {
-    setTemaEscuro(!temaEscuro);
-  };
-
-  const selecionarPersonagem = (personagem) => {
-    setPersonagemSelecionado(personagem);
-  };
 
   return (
-    <div className={`app ${temaEscuro ? 'dark' : 'light'}`}>
-      <Tema onClick={toggleTema} />
-      <Galeria personagens={personagens} onCardClick={selecionarPersonagem} />
-      {personagemSelecionado && (
-        <Detalhes
-          nome={personagemSelecionado.nome}
-          descricao={personagemSelecionado.descricao}
-          imagem={personagemSelecionado.imagem}
-        />
-      )}
-    </div>
-  );
-};
+    <Tema>
 
-export default App;
+      <h1>Galeria de Personagens</h1>
+      {/* O componente Galeria aqui está sendo passado como children para o componenete Tema. Galeria recebe por props o array de objetos com as informações dos personagens */}
+      <Galeria characters={characters}/>
+    </Tema>
+  );
+}
