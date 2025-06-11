@@ -11,15 +11,15 @@ export default function Count() {
 
   //Aqui tem o estilo de o botão quando for maior que 20 aumentar o botão de "+" diminuir
   const estiloIncremento = {
-    padding: valor > 20 ? '20px 40px' : '10px 20px',
-    fontSize: valor > 20 ? '1.5rem' : '1rem',
+    padding: valor > 10 ? '20px 40px' : '10px 20px',
+    fontSize: valor > 10 ? '15px' : '15px',
     marginRight: '10px',
   };
 
 //Aqui tem o estilo de o botão quando for menor que 0 aumentar o botão de "-" diminuir
   const estiloDecremento = {
     padding: valor < 0 ? '5px 10px' : '10px 20px',
-    fontSize: valor < 0 ? '0.75rem' : '1rem',
+    fontSize: valor < 0 ? '15px' : '15px',
     marginLeft: '10px',
   };
 
