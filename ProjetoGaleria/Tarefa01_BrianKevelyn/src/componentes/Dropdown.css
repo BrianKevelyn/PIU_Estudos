@@ -1,0 +1,15 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+  }
+  .dropdown-menu li {
+    margin: 5px 0;
+  }

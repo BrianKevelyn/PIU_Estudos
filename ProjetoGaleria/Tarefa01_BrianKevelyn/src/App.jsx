@@ -3,6 +3,7 @@ import Card from './componentes/Card';
 import Detalhes from './componentes/Detalhes';
 import Tema from './componentes/Tema';
 import Galeria from './componentes/Galeria';
+import Dropdown from './componentes/Dropdown';
 import './App.css';
 
 import person1 from './assets/Neymar.jpg';
@@ -58,11 +59,15 @@ export default function App() {
 
 
   return (
+    <>
+    <Dropdown></Dropdown>
     <Tema>
 
       <h1>Galeria de Personagens</h1>
       {/* O componente Galeria aqui está sendo passado como children para o componenete Tema. Galeria recebe por props o array de objetos com as informações dos personagens */}
       <Galeria characters={characters}/>
     </Tema>
+
+    </>
   );
 }
