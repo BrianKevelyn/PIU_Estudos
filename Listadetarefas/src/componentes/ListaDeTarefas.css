@@ -7,7 +7,21 @@ ul {
     margin: 50px;
 }
 
-ul li{
-    list-style: none;
-    border: 2px solid #FFDAB9;
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card label {
+  flex: 1;
+}
+
+.card button {
+  margin-left: 5px;
 }
