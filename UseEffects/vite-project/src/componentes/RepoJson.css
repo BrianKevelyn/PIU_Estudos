@@ -1,0 +1,17 @@
+.tableName {
+    border: 2px solid #4CAF50;
+    margin: 20px;
+    padding: 10px; 
+}
+
+.tableUsername {
+    border: 2px solid #2196F3;
+    margin: 20px;
+    padding: 10px;
+}
+
+.tableCity {
+    border: 2px solid #FF5722;
+     margin: 20px;
+     padding: 10px;
+}

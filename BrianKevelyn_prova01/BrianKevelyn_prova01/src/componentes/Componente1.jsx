@@ -19,7 +19,11 @@ export default function Count() {
 //Aqui tem o estilo de o botão quando for menor que 0 aumentar o botão de "-" diminuir
   const estiloDecremento = {
     padding: valor < 0 ? '5px 10px' : '10px 20px',
+<<<<<<< Updated upstream
     fontSize: valor < 0 ? '15px' : '15px',
+=======
+    fontSize: valor < 0 ? '10px' : '10px',
+>>>>>>> Stashed changes
     marginLeft: '10px',
   };
 

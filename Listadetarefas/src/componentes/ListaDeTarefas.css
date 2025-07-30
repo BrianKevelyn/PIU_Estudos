@@ -1,0 +1,27 @@
+form input{
+    padding: 5px;
+    margin: 10px;
+}
+
+ul {
+    margin: 50px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card label {
+  flex: 1;
+}
+
+.card button {
+  margin-left: 5px;
+}
