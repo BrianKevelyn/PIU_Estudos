@@ -1,37 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
 export default function AlbumList() {
-  const [userId, setUserId] = useState('');
-  const [albums, setAlbums] = useState([]);
-  const [filteredAlbums, setFilteredAlbums] = useState([]);
+  const [userId, setUserId] = useState('');         
+  const [albums, setAlbums] = useState([]);        
+  const [filteredAlbums, setFilteredAlbums] = useState([]); 
+  const [reloadCount, setReloadCount] = useState(0);    
 
-  // estado que serve para ajudar a recarregar os álbuns da API
-  const [reloadCount, setReloadCount] = useState(0); // contador de quantas vezes de recarregamento
-
+  // busca os álbuns da API sempre que reloadCount mudar
   useEffect(() => {
-    // faz a requisição (fetch) para buscar os álbuns
-    fetch('https://jsonplaceholder.typicode.com/albums')
-      .then(res => res.json()) 
-      .then(data => {
+    const fetchUsuarios = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/albums');
+        const data = await response.json();
         setAlbums(data); 
-        console.log('Álbuns atualizados da API'); // só pra testar se tá indo ai aparece lá no console
-      });
-  }, [reloadCount]); // quando mudar faz outra chamada
+      } catch (error) {
+        console.error("Erro ao buscar usuários:", error);
+      }
+    };
 
-  const handleSearch = () => {
-    const id = Number(userId); 
+    fetchUsuarios();
+  }, [reloadCount]);
+
+  // quando o userId mudar ele chama a função dnv
+  useEffect(() => {
+    const id = Number(userId);
 
     if (id >= 1 && id <= 10) {
       const filtrados = albums.filter(album => album.userId === id);
-      setFilteredAlbums(filtrados); // atualiza a lista filtrada
+      setFilteredAlbums(filtrados);
     } else {
-      alert('Digite um número entre 1 e 10');
-      setFilteredAlbums([]); 
+      setFilteredAlbums([]);
     }
-  };
+  }, [userId, albums]); // roda sempre que userId ou albums mudar
 
   const handleReload = () => {
-    // incrementa o contador que isso faz com que o useEffect rode de novo
     setReloadCount(prev => prev + 1);
   };
 
@@ -39,16 +41,13 @@ export default function AlbumList() {
     <div>
       <h1>Álbuns</h1>
 
-      <input  type="number" value={userId}  onChange={e => setUserId(e.target.value)}  placeholder="Digite um número de 1 a 10"/>
-      <button onClick={handleSearch}>Buscar</button>
+      <input type="number" value={userId} onChange={e => setUserId(e.target.value)} placeholder="Digite um número de 1 a 10"/>
 
-      <button onClick={handleReload} style={{ marginLeft: '10px' }}>
-        Atualizar álbuns
-      </button>
-  
+      <button onClick={handleReload} style={{ marginLeft: '10px' }}>Atualizar álbuns</button>
+
       <ul>
         {filteredAlbums.map(album => (
-          <li key={album.id}>{album.title}</li> 
+          <li key={album.id}>{album.title}</li>
         ))}
       </ul>
     </div>
