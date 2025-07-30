@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 10px;
+    width: 150px;
+    height: 50px;
+}
+
+.box {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.titulo, .texto, button, li {
+    font-family: inherit;
+}
+
+li {
+    list-style-type: none;
+    color: black;
+}
+
+.box_nome {
+    background: rgb(255, 255, 255);
+    margin: 7px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+
+.lista {
+    width: 500px;
+}
